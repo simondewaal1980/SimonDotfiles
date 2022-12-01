@@ -18,6 +18,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.enableContainers = false;
 
    networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.
@@ -138,7 +139,7 @@ services.pipewire = {
      virt-manager
      distrobox
      git 
-     
+
      #Polkit
    pkgs.lxqt.lxqt-policykit
       #diverse pakketten
@@ -150,6 +151,7 @@ services.pipewire = {
       ncspot
       xorg.xhost
       gparted 
+      vscode
  #Windowmanager benodigdheden
       pulseaudio
       picom
@@ -167,7 +169,7 @@ services.pipewire = {
       pkgs.github-desktop
       xdotool
 
-     # pkgs.obs-studio-plugins.obs-backgroundremoval
+      pkgs.obs-studio-plugins.obs-backgroundremoval
      # obs-studio
    #Kodi
       (pkgs.kodi.withPackages (p: with p; [
