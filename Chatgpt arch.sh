@@ -23,11 +23,11 @@ btrfs subvolume create /mnt/@home
 btrfs subvolume create /mnt/@snapshots
 umount /mnt
 # Mount de subvolumes met zstd3 compressie
-mount -o subvol=@,compress=zstd /dev/sda2 /mnt
+mount -o subvol=@,compress=zstd ${disk}2 /mnt
 mkdir /mnt/home
-mount -o subvol=@home,compress=zstd /dev/sda2 /mnt/home
+mount -o subvol=@home,compress=zstd ${disk}2  /mnt/home
 mkdir /mnt/.snapshots
-mount -o subvol=@snapshots /dev/sda2 /mnt/.snapshots
+mount -o subvol=@snapshots ${disk}2  /mnt/.snapshots
 
 # Installeer de basis-arch pakketten
 pacstrap /mnt base linux btrfs-progs snapper
@@ -59,5 +59,4 @@ elif [ "$keuze" = "n" ]; then
 echo "Herstart geannuleerd."
 else
 echo "Ongeldige invoer. Voer alstublieft j of n in."
-
 
