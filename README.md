@@ -62,6 +62,17 @@ git clone https://aur.archlinux.org/python-pywal16.git && cd python-pywal16 && m
 Daarna genereert `~/.config/qtile/scripts/set-wallpaper.sh` het schema en start
 `picom` automatisch bij de volgende login (via `@hook.subscribe.startup_once` in `config.py`).
 
+## Repo bijwerken vanuit de live-configuratie
+
+Pas je iets aan in `~/.config` en wil je dat in deze repo zetten:
+
+```bash
+./sync.sh                  # kopieert live → repo en toont de wijzigingen (staged)
+./sync.sh -m "boodschap"   # idem, en maakt meteen een commit
+```
+
+`install.sh` doet het omgekeerde: repo → live.
+
 ## Aandachtspunten
 
 - **Alacritty**: het importpad in `alacritty/alacritty.toml` is absoluut
